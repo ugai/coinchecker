@@ -1,5 +1,8 @@
 # Coinchecker
 
+[![crates.io](https://img.shields.io/crates/v/coinchecker.svg)](https://crates.io/crates/coinchecker)
+[![docs.rs](https://docs.rs/coinchecker/badge.svg)](https://docs.rs/coinchecker)
+
 An unofficial Rust Library for the Coincheck REST API.
 
 
