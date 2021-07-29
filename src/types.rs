@@ -36,6 +36,7 @@ pub enum CoinPair {
     EtcJpy,
     FctJpy,
     MonaJpy,
+    PltJpy,
 }
 
 impl CoinPair {
@@ -45,6 +46,7 @@ impl CoinPair {
             CoinPair::EtcJpy => "etc_jpy",
             CoinPair::FctJpy => "fct_jpy",
             CoinPair::MonaJpy => "mona_jpy",
+            CoinPair::PltJpy => "plt_jpy",
         }
     }
 }
