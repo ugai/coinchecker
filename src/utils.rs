@@ -16,7 +16,7 @@ use anyhow::Result;
 ///     //   Ticker { last: 4043996.0, bid: 4043000.0, ...
 /// }
 /// ```
-pub async fn quick_debug<T, F>(task: F) -> ()
+pub async fn quick_debug<T, F>(task: F)
 where
     T: std::fmt::Debug,
     F: std::future::Future<Output = Result<T>>,

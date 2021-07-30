@@ -110,9 +110,9 @@ impl Coincheck {
         dotenv::dotenv().ok();
 
         let access_key = std::env::var(Self::ENV_ACCESS_KEY)
-            .expect(&format!("{} must be set", Self::ENV_ACCESS_KEY));
+            .unwrap_or_else(|_| panic!("{} must be set", Self::ENV_ACCESS_KEY));
         let secret_key = std::env::var(Self::ENV_SECRET_KEY)
-            .expect(&format!("{} must be set", Self::ENV_SECRET_KEY));
+            .unwrap_or_else(|_| panic!("{} must be set", Self::ENV_SECRET_KEY));
 
         Coincheck::new_with_keys(&access_key, &secret_key)
     }

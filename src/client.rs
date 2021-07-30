@@ -50,8 +50,8 @@ impl Client {
         let nonce = Client::get_nonce()?;
         headers.insert(Header::NONCE, HeaderValue::from_str(&nonce).unwrap());
 
-        let message = nonce.to_owned() + url.as_str();
-        let signature = Client::get_signature(&self.secret_key.as_ref().unwrap(), &message)?;
+        let message = nonce + url.as_str();
+        let signature = Client::get_signature(self.secret_key.as_ref().unwrap(), &message)?;
         headers.insert(Header::SIGNATURE, signature.parse().unwrap());
         headers.insert(
             Header::KEY,
@@ -88,7 +88,7 @@ impl Client {
         params: Option<&Params<'_>>,
         use_auth: bool,
     ) -> Result<T> {
-        let res = self.request(method, &path, params, use_auth).await?;
+        let res = self.request(method, path, params, use_auth).await?;
         let data = res.json().await?;
         Ok(data)
     }
@@ -101,7 +101,7 @@ impl Client {
         params: Option<&Params<'_>>,
         use_auth: bool,
     ) -> Result<String> {
-        let res = self.request(method, &path, params, use_auth).await?;
+        let res = self.request(method, path, params, use_auth).await?;
         let data = res.text().await?;
         Ok(data)
     }
