@@ -45,9 +45,8 @@ mod model {
     #[derive(Debug, Serialize, Deserialize)]
     pub struct Trade {
         pub id: IdType,
-        #[serde_as(as = "DisplayFromStr")]
-        pub amount: PriceType,
-        pub rate: PriceType,
+        pub amount: String,
+        pub rate: String,
         pub pair: String,
         pub order_type: String,
         pub created_at: DateTime<Utc>,
